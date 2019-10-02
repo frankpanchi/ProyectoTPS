@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ColegioTPSPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Entidades.Rol</class>
+    <class>Entidades.Matricula</class>
+    <class>Entidades.Profesor</class>
+    <class>Entidades.Contacto</class>
+    <class>Entidades.Pago</class>
+    <class>Entidades.Alumno</class>
+    <class>Entidades.Grado</class>
+    <class>Entidades.Seccion</class>
+    <class>Entidades.Carnet</class>
+    <class>Entidades.Salario</class>
+    <class>Entidades.Periodo</class>
+    <class>Entidades.PagoAlumno</class>
+    <class>Entidades.Usuarios</class>
+    <class>Entidades.Materia</class>
+    <class>Entidades.TMatricula</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+      <property name="javax.persistence.jdbc.user" value="SYSTEM"/>
+      <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+      <property name="javax.persistence.jdbc.password" value="francisco75"/>
+    </properties>
+  </persistence-unit>
+</persistence>
