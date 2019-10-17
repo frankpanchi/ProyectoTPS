@@ -103,7 +103,7 @@ public class Materia implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Materia[ idMateria=" + idMateria + " ]";
+        return materia;
     }
     
 }

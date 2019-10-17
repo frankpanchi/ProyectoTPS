@@ -22,15 +22,17 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author PANCHY
  */
 public class AlumnoJpaController implements Serializable {
-
-    public AlumnoJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+Carnet ca = new Carnet();
+    public AlumnoJpaController() {
+       this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 
@@ -253,4 +255,58 @@ public class AlumnoJpaController implements Serializable {
         }
     }
     
+     public void ComboCarnet(JComboBox<Entidades.Carnet> cbcarnet)
+            
+    {
+      try {  
+             CarnetJpaController Ccarnet = new   CarnetJpaController();
+             
+             List<Carnet> Lcarnet = Ccarnet.findCarnetEntities();
+             
+              for (int i = 0; i < Lcarnet.size() ; i++) {
+                  cbcarnet.addItem(
+                  new Carnet(
+                   Lcarnet.get(i).getIdCarnet(),
+                   Lcarnet.get(i).getCarnet()
+                             
+                  )           
+                  
+                  );
+              
+              
+              }
+         } catch( Exception e)
+            {
+             
+            } 
+    }
+     
+      public void ComboContacto(JComboBox<Contacto> cbcontacto)
+            
+    {
+      try {  
+             ContactoJpaController Ccontacto = new   ContactoJpaController();
+             
+             List<Contacto> Lcontacto = Ccontacto.findContactoEntities();
+             
+              for (int i = 0; i < Lcontacto.size() ; i++) {
+                  cbcontacto.addItem(
+                   new Contacto(
+                   Lcontacto.get(i).getIdContacto(),
+                   Lcontacto.get(i).getNombre(),
+                   Lcontacto.get(i).getApellido(),
+                   Lcontacto.get(i).getDui(),
+                   Lcontacto.get(i).getDireccion(),
+                   Lcontacto.get(i).getTelefono()            
+                  )           
+                  
+                  );
+              
+              
+              }
+         } catch( Exception e)
+            {
+             
+            } 
+    }
 }

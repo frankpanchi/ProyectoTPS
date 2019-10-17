@@ -14,11 +14,14 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import Entidades.Profesor;
+import Entidades.Rol;
 import Entidades.Salario;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -26,8 +29,9 @@ import javax.persistence.EntityManagerFactory;
  */
 public class PagoJpaController implements Serializable {
 
-    public PagoJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public PagoJpaController() {
+      
+       this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 
@@ -199,6 +203,32 @@ public class PagoJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+      public void ComboSalario(JComboBox<Salario> cbsalario)
+            
+    {
+      try {  
+             SalarioJpaController Csalario = new   SalarioJpaController();
+             
+             List<Salario> Lsal = Csalario.findSalarioEntities();
+             
+              for (int i = 0; i < Lsal.size() ; i++) {
+                  cbsalario.addItem(
+                 new Salario(
+                   Lsal.get(i).getIdSalario(),
+                   Lsal.get(i).getSalario().toString()
+                             
+                  )           
+                  
+                  );
+              
+              
+              }
+         } catch( Exception e)
+            {
+             
+            } 
     }
     
 }

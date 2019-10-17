@@ -3,7 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PANCHY/Documents/NetBeansProjects/ColegioTPS/src/colegiotps/ColegioTPS.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/GradoForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Carnet.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Rol.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Pago.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/RolJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/UsuariosJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/AlumnoJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/ContactoJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Contacto.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/ProfesorForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/GradoJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/PagoForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/UsuarioFrom.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Usuarios.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/CarnetForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Materia.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/ContactoForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/SeccionJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/colegiotps/AlumnoForm.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/CarnetJpaController.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Grado.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Seccion.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Entidades/Alumno.java</file>
+            <file>file:/C:/Users/PANCHY/Desktop/ColegioTPS/src/Controladores/ProfesorJpaController.java</file>
         </group>
     </open-files>
 </project-private>

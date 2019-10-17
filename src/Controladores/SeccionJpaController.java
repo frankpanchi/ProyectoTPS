@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -27,8 +28,8 @@ import javax.persistence.EntityManagerFactory;
  */
 public class SeccionJpaController implements Serializable {
 
-    public SeccionJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public SeccionJpaController() {
+       this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 

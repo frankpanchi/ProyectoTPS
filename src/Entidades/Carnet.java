@@ -11,10 +11,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -36,6 +39,8 @@ public class Carnet implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
+        @SequenceGenerator(name="id_carnet",sequenceName="id_carnet",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.IDENTITY,generator="id_carnet")   
     @Column(name = "ID_CARNET")
     private BigDecimal idCarnet;
     @Basic(optional = false)
@@ -103,7 +108,9 @@ public class Carnet implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Carnet[ idCarnet=" + idCarnet + " ]";
+        return carnet;
     }
+    
+    
     
 }

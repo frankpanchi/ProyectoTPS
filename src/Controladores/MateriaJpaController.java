@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -27,8 +28,8 @@ import javax.persistence.EntityManagerFactory;
  */
 public class MateriaJpaController implements Serializable {
 
-    public MateriaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public MateriaJpaController() {
+       this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 

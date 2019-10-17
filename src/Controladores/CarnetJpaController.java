@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -27,10 +28,14 @@ import javax.persistence.EntityManagerFactory;
  */
 public class CarnetJpaController implements Serializable {
 
-    public CarnetJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public CarnetJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
+
+    public CarnetJpaController(EntityManagerFactory instance) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -194,5 +199,9 @@ public class CarnetJpaController implements Serializable {
             em.close();
         }
     }
+
+ 
+
+    
     
 }

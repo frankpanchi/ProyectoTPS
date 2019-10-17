@@ -11,10 +11,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -36,6 +39,8 @@ public class Rol implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
+    @SequenceGenerator(name="id_rol",sequenceName="id_rol",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.IDENTITY,generator="id_rol") 
     @Column(name = "ID_ROL")
     private BigDecimal idRol;
     @Column(name = "ROL")
@@ -48,6 +53,11 @@ public class Rol implements Serializable {
 
     public Rol(BigDecimal idRol) {
         this.idRol = idRol;
+    }
+    
+     public Rol(BigDecimal idRol, String rol) {
+        this.idRol = idRol;
+        this.rol = rol;
     }
 
     public BigDecimal getIdRol() {
@@ -97,7 +107,7 @@ public class Rol implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Rol[ idRol=" + idRol + " ]";
+        return rol;
     }
     
 }

@@ -7,6 +7,7 @@ package Controladores;
 
 import Controladores.exceptions.NonexistentEntityException;
 import Controladores.exceptions.PreexistingEntityException;
+import Entidades.Carnet;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -21,6 +22,8 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -28,11 +31,12 @@ import javax.persistence.EntityManagerFactory;
  */
 public class ProfesorJpaController implements Serializable {
 
-    public ProfesorJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public ProfesorJpaController() {
+      this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -222,6 +226,32 @@ public class ProfesorJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+       public void ComboMateria(JComboBox<Materia> cbmateria)
+            
+    {
+      try {  
+               MateriaJpaController Cmateria = new  MateriaJpaController();
+             
+             List<Materia> Lmate = Cmateria.findMateriaEntities();
+             
+              for (int i = 0; i < Lmate.size() ; i++) {
+                  cbmateria.addItem(
+                  new Materia(
+                   Lmate.get(i).getIdMateria(),
+                   Lmate.get(i).getMateria()
+                             
+                  )           
+                  
+                  );
+              
+              
+              }
+         } catch( Exception e)
+            {
+             
+            } 
     }
     
 }

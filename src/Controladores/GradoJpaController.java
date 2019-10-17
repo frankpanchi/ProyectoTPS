@@ -15,12 +15,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import Entidades.Seccion;
 import Entidades.Matricula;
+import Entidades.Rol;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -28,8 +31,8 @@ import javax.persistence.EntityManagerFactory;
  */
 public class GradoJpaController implements Serializable {
 
-    public GradoJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public GradoJpaController() {
+      this.emf = Persistence.createEntityManagerFactory("ColegioTPSPU");
     }
     private EntityManagerFactory emf = null;
 
@@ -222,6 +225,32 @@ public class GradoJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+    
+      public void ComboRol(JComboBox<Entidades.Seccion> cbrol)
+            
+    {
+      try {  
+             SeccionJpaController Cseccion = new   SeccionJpaController();
+             
+             List<Seccion> Lsec = Cseccion.findSeccionEntities();
+             
+              for (int i = 0; i < Lsec.size() ; i++) {
+                  cbrol.addItem(
+                 new Seccion(
+                   Lsec.get(i).getIdSeccion(),
+                   Lsec.get(i).getSeccion()
+                             
+                  )           
+                  
+                  );
+              
+              
+              }
+         } catch( Exception e)
+            {
+             
+            } 
     }
     
 }

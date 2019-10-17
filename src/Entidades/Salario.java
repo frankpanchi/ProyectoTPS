@@ -11,10 +11,13 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -37,6 +40,8 @@ public class Salario implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
+     @SequenceGenerator(name="id_salario",sequenceName="id_salario",allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.IDENTITY,generator="id_salario")
     @Column(name = "ID_SALARIO")
     private BigDecimal idSalario;
     @Column(name = "SALARIO")
@@ -49,8 +54,9 @@ public class Salario implements Serializable {
     public Salario() {
     }
 
-    public Salario(BigDecimal idSalario) {
+     public Salario(BigDecimal idSalario, String Salario) {
         this.idSalario = idSalario;
+        this.salario = salario;
     }
 
     public BigDecimal getIdSalario() {
@@ -108,7 +114,7 @@ public class Salario implements Serializable {
 
     @Override
     public String toString() {
-        return "Entidades.Salario[ idSalario=" + idSalario + " ]";
+        return salario.toString();
     }
     
 }
