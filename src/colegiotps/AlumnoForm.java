@@ -40,7 +40,7 @@ public class AlumnoForm extends javax.swing.JFrame {
     ContactoJpaController Ccontacto = new ContactoJpaController();
     CarnetJpaController Ccarnet= new CarnetJpaController();
     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
-   
+   //hola
     
 
     /**
