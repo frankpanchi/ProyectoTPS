@@ -5,9 +5,11 @@
  */
 package Entidades;
 
+import Controladores.ProfesorJpaController;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +23,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.swing.JComboBox;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -84,6 +87,12 @@ public class Profesor implements Serializable {
         this.dui = dui;
         this.nit = nit;
         this.direccion = direccion;
+    }
+     public Profesor(BigDecimal idProfesor, String nombre, String apellido) {
+        this.idProfesor = idProfesor;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        
     }
 
     public BigDecimal getIdProfesor() {
@@ -173,7 +182,30 @@ public class Profesor implements Serializable {
 
     @Override
     public String toString() {
-      return idProfesor.toString();
+      return nombre.toString();
+    }
+     public void ComboAlumnoProfesor(JComboBox<Profesor> cbAlumPro)
+    {
+        try {
+            cbAlumPro.removeAllItems();
+            ProfesorJpaController CMatUsu= new ProfesorJpaController();
+            List<Profesor> ListcbAlumPro = CMatUsu.findProfesorEntities();
+            for (int i = 0; i < ListcbAlumPro.size(); i++) {
+              //  if(ListcbAlumPro.get(i).getIdMatusu().getIdMatusu().equals(idMatusu))
+                //{
+                    cbAlumPro.addItem(
+                            new Profesor(
+                            ListcbAlumPro.get(i).getIdProfesor(),
+                            ListcbAlumPro.get(i).getNombre(),
+                            ListcbAlumPro.get(i).getApellido()
+                                    
+                            )     
+                    );                 
+               // }
+            }
+        } catch (Exception e) {
+        }
+        
     }
     
 }

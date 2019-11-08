@@ -5,9 +5,12 @@
  */
 package Entidades;
 
+import Controladores.MateriaJpaController;
+import Controladores.ProfesorJpaController;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.swing.JComboBox;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -104,6 +108,30 @@ public class Materia implements Serializable {
     @Override
     public String toString() {
         return materia;
+    }
+    
+     public void ComboAlumnoProfesor(JComboBox<Materia> cbAlumPro)
+    {
+        try {
+            cbAlumPro.removeAllItems();
+            MateriaJpaController CMatUsu= new MateriaJpaController();
+            List<Materia> ListcbAlumPro = CMatUsu.findMateriaEntities();
+            for (int i = 0; i < ListcbAlumPro.size(); i++) {
+              //  if(ListcbAlumPro.get(i).getIdMatusu().getIdMatusu().equals(idMatusu))
+                //{
+                    cbAlumPro.addItem(
+                            new Materia(
+                            ListcbAlumPro.get(i).getIdMateria(),
+                                    ListcbAlumPro.get(i).getMateria()
+                          
+                                    
+                            )     
+                    );                 
+               // }
+            }
+        } catch (Exception e) {
+        }
+        
     }
     
 }

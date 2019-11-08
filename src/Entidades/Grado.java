@@ -5,9 +5,12 @@
  */
 package Entidades;
 
+import Controladores.GradoJpaController;
+import Controladores.ProfesorJpaController;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +24,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.swing.JComboBox;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -125,4 +129,27 @@ public class Grado implements Serializable {
         return grado;
     }
     
+     public void ComboAlumnoProfesor(JComboBox<Grado> cbAlumPro)
+    {
+        try {
+            cbAlumPro.removeAllItems();
+            GradoJpaController CMatUsu= new GradoJpaController();
+            List<Grado> ListcbAlumPro = CMatUsu.findGradoEntities();
+            for (int i = 0; i < ListcbAlumPro.size(); i++) {
+              //  if(ListcbAlumPro.get(i).getIdMatusu().getIdMatusu().equals(idMatusu))
+                //{
+                    cbAlumPro.addItem(
+                            new Grado(
+                            ListcbAlumPro.get(i).getIdGrado(),
+                                  ListcbAlumPro.get(i).getGrado()
+                            
+                                    
+                            )     
+                    );                 
+               // }
+            }
+        } catch (Exception e) {
+        }
+        
+    }
 }

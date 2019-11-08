@@ -96,6 +96,9 @@ public class ProfesorForm extends javax.swing.JFrame {
             Jtprofesor.getColumnModel().getColumn(0).setMinWidth(0);
             Jtprofesor.getColumnModel().getColumn(0).setPreferredWidth(0);
             Jtprofesor.getColumnModel().getColumn(0).setMaxWidth(0);
+            Jtprofesor.getColumnModel().getColumn(7).setMinWidth(0);
+            Jtprofesor.getColumnModel().getColumn(7).setPreferredWidth(0);
+            Jtprofesor.getColumnModel().getColumn(7).setMaxWidth(0);
         }
 
         jLabel2.setText("Apellido:");
